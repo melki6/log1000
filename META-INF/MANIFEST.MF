@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Implementation-Title: umlet-standalone
+Implementation-Version: 14.2
+Archiver-Version: Plexus Archiver
+Built-By: Dia
+Implementation-Vendor-Id: com.umlet
+Build-Time: 2016-04-03 14:57:27
+Class-Path: lib/umlet-swing-14.2.jar lib/umlet-elements-14.2.jar lib/s
+ lf4j-api-1.7.7.jar lib/autocomplete-2.5.8.jar lib/batik-awt-util-1.8.
+ jar lib/batik-dom-1.8.jar lib/batik-ext-1.8.jar lib/batik-svggen-1.8.
+ jar lib/batik-util-1.8.jar lib/batik-xml-1.8.jar lib/commons-io-2.4.j
+ ar lib/itextpdf-5.4.1.jar lib/javaparser-core-2.3.0.jar lib/jlibeps-0
+ .1.jar lib/mailapi-1.4.3.jar lib/smtp-1.5.4.jar lib/rsyntaxtextarea-2
+ .5.8.jar lib/ecj-4.4.2.jar lib/bcel-5.2.jar lib/umlet-res-14.2.jar li
+ b/slf4j-log4j12-1.7.13.jar lib/log4j-1.2.17.jar
+Created-By: Apache Maven 3.3.3
+Build-Jdk: 1.8.0_65
+Main-Class: com.baselet.standalone.MainStandalone
+
