@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1130</x>
+      <y>260</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>GroupeUtilisateurs
+--
+etablirConnexion()
+ajouterContact()
+creerGroupe()
+
+--
++
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>270</y>
+      <w>210</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>GestionCommunication
+--
+-Contact
+
+--
+
++appelerContactOuGroup()
++accepterAppel()
++creerAppelGroupe()
++refuserAppel()
++terminerAppel()
++envoyerMessage()
++envoyerFichier()
++gererHistorique()
++envoyerID()
++envoyerMessage()
++verifierMessageEntrant()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>30</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>CreateurDesProfils
+--
+-Utilisateur
+
+--
++creerProfil()
++changerCoordonees()
++authentification()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>590</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Contact
+--
+-listeContacts:Utilisateur
+--
++verifierContact()
++ajouterContact()
++enleverContact()
++partagerID
++ajouterNouveauxContacts
++creerGroupeContacts
++supprimerContact
++bloquercontact
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1130</x>
+      <y>20</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>BaseDonnees
+--
+-tableauUtilisateurs
+
+--
++verifierClientExistant()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Utilisateur
+--
+-nom
+-prenom
+-courriel
+-id
+-motDePass
+-status
+(authentifie ou non)
+--
++obtenirID()
++modifierContact()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
