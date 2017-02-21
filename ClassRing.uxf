@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>540</y>
+      <w>330</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Conference
+--
+-string id_
+-ConferenceState confState_
+-ParticipantSet participants_
+-shared_ptr&lt;video::VideoMixer&gt; videoMixer_
+
+--
+ParticipantSet getParticipantList() const
+vector&lt;string&gt; getDisplayNames() const
+virtual bool toggleRecording()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>40</y>
+      <w>280</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Recordable
+--
+-mutable std::mutex apiMutex_
+-bool recording_
+-unique_ptr&lt;AudioRecord&gt; recAudio_
+--
++virtual bool toggleRecording()
++virtual std::string 
+getAudioFilename() const
++void setRecordingAudioFormat
+(AudioFormat format)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>40</y>
+      <w>330</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Serializable
+
+--
++virtual void serialize
+(YAML::Emitter &amp;out) = 0;
++virtual void unserialize
+(const YAML::Node &amp;node) = 0;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>350</y>
+      <w>320</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Account
+--
++vector&lt;shared_ptr&lt;Call&gt;&gt; getCalls()
++virtual shared_ptr&lt;Call&gt; newOutgoingCall
+(const std::string&amp; toUrl) = 0;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>150</y>
+      <w>30</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>170</y>
+      <w>430</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>Manager
+--
+-unique_ptr&lt;PluginManager&gt; pluginManager_
+--
++void processRemainingParticipants(Conference &amp;conf);
++void bindCallToConference(Call&amp; call, Conference&amp; conf);
++static Manager&amp; instance()
++static void runOnMainThread(Callback&amp;&amp; cb) 
++void addAudio(Call&amp; call)
++void removeAudio(Call&amp; call)
++void callFailure(Call&amp; call)
++void callBusy(Call&amp; call)
++bool isCurrentCall(const Call&amp; call) const
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>40</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Plugin_Manager
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>320</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Call
+--
+-Account&amp; account_;
+--
++Account&amp; getAccount() const
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>220</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>540</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Call_Factory
+--
++CallFactory::
+getCallIDs&lt;Call&gt;() const</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
